@@ -1,0 +1,36 @@
+---
+description: Bootstrap phases, custom installers, and helper scripts
+globs:
+  - bootstrap.sh
+  - Makefile
+  - install/**/*.sh
+alwaysApply: false
+---
+
+# Bootstrap scripts
+
+`bootstrap.sh` orchestrates phases; it does not install packages itself.
+
+- `install/prereqs.sh` — Xcode CLT, Homebrew, formulae `stow` and `mas`. CLT missing: prompt install and exit (GUI is non-blocking).
+- `install/brew.sh` — `brew bundle --file=Brewfile`, then set login shell to Homebrew `zsh` (`/etc/shells` + `chsh`, skip-if-already).
+- `install/custom.sh` — runs `install/custom/*.sh` only (not README). Empty dir is OK.
+  Includes `yazi-launcher.sh` → `/Applications/Yazi.app` (needs Ghostty + yazi from brew),
+  and `iina-defaults.sh` → system default media handler via `utiluti` (needs cask `iina`).
+  `iina-defaults.sh` sets a *short* UTI list (~13) on purpose: macOS prompts Allow per type.
+  Re-runs skip types already owned by IINA. Approve any dialogs, then re-run custom if needed.
+  `brew-weekly-upgrade.sh` installs LaunchAgent `com.macos-dotfiles.brew-weekly-upgrade`
+  (Sunday 22:00; missed → next wake). Job: `brew upgrade --greedy`, `mas upgrade`,
+  `softwareupdate --download` only (no unattended OS install/reboot).
+- `install/stow.sh` — `--restow` all `stow/*`; `--delete` for `make unstow`; then `ya pkg install` if Yazi `package.toml` is present.
+- `macos/defaults.sh` — skip unless `macos/harvested.flags` exists.
+
+`--only` accepts one of: `prereqs`, `brew`, `custom`, `stow`, `macos`. Keep `Makefile` in sync.
+
+Custom app script pattern:
+
+```bash
+if [[ -d "/Applications/Foo.app" ]]; then
+  log "already installed: Foo"
+  exit 0
+fi
+```

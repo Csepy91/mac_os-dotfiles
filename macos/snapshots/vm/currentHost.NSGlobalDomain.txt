@@ -1,0 +1,27 @@
+{
+    "com.apple.gms.availability.key" =     (
+        2
+    );
+    "com.apple.gms.availability.unifiedReasons" = {length = 107, bytes = 0x7b22636f 6d2e6170 706c652e 53657474 ... 3a7b7d7d 7d7d5d7d };
+    "com.apple.gms.availability.useCaseReadiness" = {length = 19662, bytes = 0x7b22636c 61737369 66696361 74696f6e ... 5457222c 305d5d7d };
+    "com.apple.gms.enhancedSiri.lastUpdated" = "2026-10-03 13:55:07 +0000";
+    "com.apple.gms.enhancedSiri.reasons" =     (
+        1
+    );
+    "com.apple.trackpad.enableSecondaryClick" = 1;
+    "com.apple.trackpad.fiveFingerPinchSwipeGesture" = 2;
+    "com.apple.trackpad.fourFingerHorizSwipeGesture" = 2;
+    "com.apple.trackpad.fourFingerPinchSwipeGesture" = 2;
+    "com.apple.trackpad.fourFingerVertSwipeGesture" = 2;
+    "com.apple.trackpad.momentumScroll" = 1;
+    "com.apple.trackpad.pinchGesture" = 1;
+    "com.apple.trackpad.rotateGesture" = 1;
+    "com.apple.trackpad.scrollBehavior" = 2;
+    "com.apple.trackpad.threeFingerDragGesture" = 0;
+    "com.apple.trackpad.threeFingerHorizSwipeGesture" = 2;
+    "com.apple.trackpad.threeFingerTapGesture" = 2;
+    "com.apple.trackpad.threeFingerVertSwipeGesture" = 2;
+    "com.apple.trackpad.twoFingerDoubleTapGesture" = 1;
+    "com.apple.trackpad.twoFingerFromRightEdgeSwipeGesture" = 3;
+    "com.apple.trackpad.version" = 5;
+}

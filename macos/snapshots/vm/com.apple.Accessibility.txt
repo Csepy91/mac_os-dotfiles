@@ -1,0 +1,22 @@
+{
+    AXSClassicInvertColorsPreference = 0;
+    ApplicationAccessibilityEnabled = 0;
+    AutomationEnabled = 0;
+    BrailleInputDeviceConnected = 0;
+    ButtonShapesEnabled = 0;
+    CommandAndControlEnabled = 0;
+    DarkenSystemColors = 0;
+    DifferentiateWithoutColor = 0;
+    EnhancedBackgroundContrastEnabled = 0;
+    FullKeyboardAccessEnabled = 0;
+    FullKeyboardAccessFocusRingEnabled = 1;
+    GenericAccessibilityClientEnabled = 0;
+    GrayscaleDisplay = 0;
+    InvertColorsEnabled = 0;
+    KeyRepeatDelay = "0.5";
+    KeyRepeatEnabled = 1;
+    KeyRepeatInterval = "0.083333333";
+    ReduceMotionEnabled = 0;
+    SpeakThisEnabled = 0;
+    VoiceOverTouchEnabled = 0;
+}

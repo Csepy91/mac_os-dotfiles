@@ -1,0 +1,73 @@
+### defaults find glass
+Found 1 keys in domain 'com.apple.SetupAssistant': {
+    LastSeenGlassTintUpsellProductVersion = "27.0.1";
+}
+Found 3 keys in domain 'Apple Global Domain': {
+    NSGlassBuddyTintAmount = 0;
+    NSGlassEverEditedInBuddy = 1;
+    NSGlassTintAmount = 0;
+}
+
+### defaults find appearance
+Found 1 keys in domain 'com.apple.corespotlightui': {
+    CSReceiverBundleIdentifierState =     {
+        "com.apple.Accessibility-Settings.extension" = 1;
+        "com.apple.AppStore" = 1;
+        "com.apple.AquaAppearanceHelper" = 1;
+        "com.apple.Battery-Settings.extension" = 1;
+        "com.apple.CalendarUI" = 1;
+        "com.apple.Coverage-Settings.extension" = 1;
+        "com.apple.DiskImageMounter" = 1;
+        "com.apple.Internet-Accounts-Settings.extension" = 1;
+        "com.apple.Keyboard-Settings.extension" = 1;
+        "com.apple.LocalAuthenticationRemoteService" = 1;
+        "com.apple.MenuBarAgent" = 1;
+        "com.apple.Photos" = 1;
+        "com.apple.Safari" = 1;
+        "com.apple.Safari.SandboxBroker" = 1;
+        "com.apple.SecurityAgent" = 1;
+        "com.apple.SetupAssistant" = 1;
+        "com.apple.Software-Update-Settings.extension" = 1;
+        "com.apple.Spotlight" = 1;
+        "com.apple.Stickers" = 1;
+        "com.apple.SystemProfiler.AboutExtension" = 1;
+        "com.apple.Terminal" = 1;
+        "com.apple.TextInputMenuAgent" = 1;
+        "com.apple.TextInputSwitcher" = 1;
+        "com.apple.TextInputUI.xpc.CursorUIViewService" = 1;
+        "com.apple.Time-Machine-Settings.extension" = 1;
+        "com.apple.UserNotificationCenter" = 1;
+        "com.apple.WalletSettingsExtension" = 1;
+        "com.apple.application" = 1;
+        "com.apple.appplaceholdersyncd" = 1;
+        "com.apple.campo" = 1;
+        "com.apple.contactsd" = 1;
+        "com.apple.controlcenter" = 1;
+        "com.apple.coreservices.uiagent" = 1;
+        "com.apple.dt.CommandLineTools.installondemand" = 1;
+        "com.apple.duetexpertd" = 1;
+        "com.apple.fileprovider.fileproviderd" = 1;
+        "com.apple.finder" = 1;
+        "com.apple.helpviewer" = 1;
+        "com.apple.loginwindow" = 1;
+        "com.apple.mail" = 1;
+        "com.apple.notificationcenterui" = 1;
+        "com.apple.reminders" = 1;
+        "com.apple.shortcuts" = 1;
+        "com.apple.spotlight" = 1;
+        "com.apple.systempreferences" = 1;
+        "com.apple.systempreferences.GeneralSettings" = 1;
+        "com.apple.tips" = 1;
+        "com.apple.usernotificationsd" = 1;
+        "com.apple.windowmanager.ShowDesktopEducation" = 1;
+        "com.todesktop.230313mzl4w4u92" = 1;
+    };
+}
+Found 1 keys in domain 'com.apple.SetupAssistant': {
+    DidSeeAppearanceSetup = 1;
+}
+Found 1 keys in domain 'com.apple.systemsettingsagent': {
+    "lastIndexed_PlaceholderOpenAppearanceSettingsDeepLink.PlaceholderAppearanceSettingsDeepLink" = "26A434:en_US@rg=huzzzz:58286963-F3DC-4DF7-89F0-0382555E8B4B:7";
+}
+
+### defaults find Liquid

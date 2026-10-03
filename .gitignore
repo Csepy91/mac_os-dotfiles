@@ -1,0 +1,11 @@
+.DS_Store
+*.local
+.gitconfig.local
+stow/zsh/.config/zsh/local.zsh
+macos/harvested.flags
+macos/**/*.plist
+
+# Capture snapshots: keep the VM baseline; ignore everything else
+macos/snapshots/*
+!macos/snapshots/vm/
+!macos/snapshots/vm/**

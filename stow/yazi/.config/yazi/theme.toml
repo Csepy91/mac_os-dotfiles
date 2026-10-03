@@ -1,0 +1,4 @@
+# Flavor only — overrides belong here; leave the rest to the flavor.
+# https://yazi-rs.github.io/docs/flavors/overview/
+[flavor]
+dark = "catppuccin-frappe"

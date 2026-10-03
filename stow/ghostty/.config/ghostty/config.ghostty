@@ -1,0 +1,38 @@
+# https://ghostty.org/docs/config
+# Ghostty 1.3+ prefers config.ghostty (XDG).
+# Do NOT create ~/Library/Application Support/com.mitchellh.ghostty/config*
+# — that path loads after XDG and overrides Stow.
+
+# Font (Nerd Font Mono = fixed-width icons)
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 14
+
+# Theme — dark Catppuccin: Mocha (darkest), Macchiato, Frappe; light: Latte
+theme = Catppuccin Frappe
+
+# Window / chrome
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+window-theme = system
+# `tabs` overlaps/jumbles on macOS 26/27 (Ghostty bug; tip fix #13069).
+# Use transparent/native until a fixed Ghostty ships; Cmd+T still works.
+macos-titlebar-style = transparent
+window-save-state = always
+confirm-close-surface = false
+
+# Glass look — lower opacity = more see-through; high blur frosts the backdrop
+background-opacity = 0.62
+background-blur-radius = 60
+
+# macOS: left Option = Alt for CLI keybinds
+macos-option-as-alt = left
+
+copy-on-select = clipboard
+mouse-hide-while-typing = true
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Reload: Cmd+Shift+,
+auto-update = check

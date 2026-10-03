@@ -1,0 +1,24 @@
+---
+description: What this repo is and how agents should change it
+alwaysApply: true
+---
+
+# macOS dotfiles
+
+Idempotent bootstrap for a Mac: Homebrew apps, optional custom installers, GNU Stow of dotfiles, then macOS defaults (harvested later). This UTM VM is the authoring environment. The same `./bootstrap.sh` must replay on a clean VM, then on wiped bare metal.
+
+## How to work
+
+- One entry: `./bootstrap.sh` or `make bootstrap`. Phases: `prereqs` → `brew` → `custom` → `stow` → `macos`. Prefer `./bootstrap.sh --only <phase>` when iterating.
+- Scripts are bash, `set -euo pipefail`, skip-if-present. Source `install/lib.sh` for `log` / `die` / `have` / `load_brew`.
+- Do not invent Liquid Glass, keyboard, or scroll settings. `macos/` stays a no-op until harvest (`macos/CAPTURE.md`).
+- No secrets in git (`*.local`, SSH keys, tokens). Git identity lives in untracked `~/.gitconfig.local`.
+- Do not run a full bootstrap unless the user asks; installing casks is slow and interactive.
+- Do not add Chezmoi, nix-darwin, Ansible, or Oh My Zsh unless asked.
+
+## App inventory
+
+| Kind | Where |
+| --- | --- |
+| CLI / most GUI / App Store | `Brewfile` (`brew`, `cask`, `mas`) |
+| Not brew/cask/mas | `install/custom/<app>.sh` (idempotent) |
