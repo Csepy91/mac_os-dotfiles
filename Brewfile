@@ -42,6 +42,10 @@ cask "nvidia-geforce-now"
 cask "transmission"
 cask "teamviewer"
 cask "iina"
+# Niri/Hyprland-style tiling WM (Apple Silicon, macOS 26+; SIP stays on)
+cask "omniwm"
+# Launcher; use OmniCast (Raycast Store) for OmniWM — disable Raycast Window Management
+cask "raycast"
 cask "font-symbols-only-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 

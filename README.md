@@ -34,11 +34,16 @@ make unstow
 ```
 
 GUI apps currently in the Brewfile: Cursor, Ghostty, Karabiner-Elements,
-UTM, LibreOffice, GeForce NOW, Transmission, TeamViewer, IINA. Vorssaint is
-commented out until bare-metal setup. App Store (`mas`) lines for AdGuard Mini
-and Xcode are commented out until you want them. Ghostty config is stowed at
-`~/.config/ghostty/config.ghostty` (Catppuccin Frappe, glass opacity).
+UTM, LibreOffice, GeForce NOW, Transmission, TeamViewer, IINA, OmniWM, Raycast.
+Vorssaint is commented out until bare-metal setup. App Store (`mas`) lines for
+AdGuard Mini and Xcode are commented out until you want them. Ghostty config is
+stowed at `~/.config/ghostty/config.ghostty` (Catppuccin Frappe, glass opacity).
 Karabiner complex modifications can get a `stow/karabiner` package later.
+OmniWM: grant Accessibility + Input Monitoring; keep “Displays have separate
+Spaces” on; do not run another tiling WM alongside it. Enable IPC in
+`~/.config/omniwm/settings.toml` (`ipcEnabled = true`) for OmniCast.
+Raycast is the app launcher; install [OmniCast](https://www.raycast.com/imprisonedmind/omni-cast)
+from the Raycast Store (not brew) and leave Raycast’s own Window Management off.
 CLI: Homebrew `zsh`, `git`, `gh`, `uv`, `ncdu`, `btop`, plus Yazi and its
 preview/search dependencies (`ffmpeg`, `sevenzip`, `jq`, `poppler`, `fd`,
 `ripgrep`, `fzf`, `zoxide`, `resvg`, `imagemagick`, JetBrains Mono Nerd Font,
