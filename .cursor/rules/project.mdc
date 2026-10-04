@@ -5,16 +5,16 @@ alwaysApply: true
 
 # macOS dotfiles
 
-Idempotent bootstrap for a Mac: Homebrew apps, optional custom installers, GNU Stow of dotfiles, then macOS defaults (harvested later). This UTM VM is the authoring environment. The same `./bootstrap.sh` must replay on a clean VM, then on wiped bare metal.
+Idempotent bootstrap for a Mac: Homebrew apps, optional custom installers, GNU Stow of dotfiles. Same `./bootstrap.sh` on this machine and any fresh reinstall.
 
 ## How to work
 
-- One entry: `./bootstrap.sh` or `make bootstrap`. Phases: `prereqs` → `brew` → `custom` → `stow` → `macos`. Prefer `./bootstrap.sh --only <phase>` when iterating.
+- One entry: `./bootstrap.sh` or `make bootstrap`. Phases: `prereqs` → `brew` → `custom` → `stow`. Prefer `./bootstrap.sh --only <phase>` when iterating.
 - Scripts are bash, `set -euo pipefail`, skip-if-present. Source `install/lib.sh` for `log` / `die` / `have` / `load_brew`.
-- Do not invent Liquid Glass, keyboard, or scroll settings. `macos/` stays a no-op until harvest (`macos/CAPTURE.md`).
 - No secrets in git (`*.local`, SSH keys, tokens). Git identity lives in untracked `~/.gitconfig.local`.
 - Do not run a full bootstrap unless the user asks; installing casks is slow and interactive.
 - Do not add Chezmoi, nix-darwin, Ansible, or Oh My Zsh unless asked.
+- Inspiration for SketchyBar / JankyBorders / OmniWM patterns: https://github.com/iluvgirlswithglasses/dots-macos (SketchyBar submodule: https://github.com/iluvgirlswithglasses/sketchybar). Steal architecture, not the Teto palette — we use Catppuccin Frappe.
 
 ## App inventory
 

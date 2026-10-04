@@ -1,5 +1,0 @@
-{
-    ShowAMPM = 1;
-    ShowDate = 0;
-    ShowDayOfWeek = 1;
-}

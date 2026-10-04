@@ -2,6 +2,12 @@
 brew "stow"
 brew "mas"
 
+# Desktop bar + window borders (OmniWM companions)
+tap "FelixKratz/formulae"
+brew "lua"
+brew "sketchybar"
+brew "borders"
+
 # cli
 brew "zsh"
 brew "zsh-autosuggestions"

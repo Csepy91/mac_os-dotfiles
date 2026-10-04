@@ -34,6 +34,18 @@ Config at `stow/ghostty/.config/ghostty/config.ghostty` (XDG; Ghostty 1.3+).
 Never create `~/Library/Application Support/com.mitchellh.ghostty/config*` —
 macOS loads that *after* XDG and it overrides Stow (even an empty file is a footgun).
 
+## sketchybar
+
+- `stow/sketchybar/.config/sketchybar/` — Lua config (SbarLua). Catppuccin Frappe in `colors.lua`.
+- Minimal items: OmniWM spaces, front_app, wifi (up/down rates), volume, battery, calendar.
+- OmniWM watcher lives in `lib/wm/omniwm.lua` (`omniwmctl watch` → sketchybar trigger).
+- Requires SbarLua from `install/custom/sketchybar-borders.sh`. Keep `sketchybarrc` executable.
+
+## borders
+
+- `stow/borders/.config/borders/bordersrc` — JankyBorders, Frappe mauve active outline.
+- Keep `bordersrc` executable. Started via `brew services` in the custom installer.
+
 ## git
 
 `.gitconfig` must `[include] path = ~/.gitconfig.local`. Never commit real name/email.

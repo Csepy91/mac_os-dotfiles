@@ -1,6 +1,0 @@
-label=vm
-captured_at=2026-10-03T14:16:47Z
-hostname=Csepregis-Virtual-Machine
-macos=27.0.1
-build=26A434
-arch=arm64

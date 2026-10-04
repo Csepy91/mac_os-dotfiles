@@ -15,10 +15,9 @@ Idempotent macOS bootstrap. Phases, in order:
   brew      Brewfile (formulae, casks, mas)
   custom    install/custom/*.sh
   stow      GNU Stow packages into $HOME
-  macos     macos/defaults.sh (no-op until harvested)
 
 Options:
-  --only PHASE   Run a single phase (prereqs|brew|custom|stow|macos)
+  --only PHASE   Run a single phase (prereqs|brew|custom|stow)
   -h, --help     Show this help
 EOF
 }
@@ -30,7 +29,6 @@ run_phase() {
     brew)    bash "${DOTFILES_ROOT}/install/brew.sh" ;;
     custom)  bash "${DOTFILES_ROOT}/install/custom.sh" ;;
     stow)    bash "${DOTFILES_ROOT}/install/stow.sh" ;;
-    macos)   bash "${DOTFILES_ROOT}/macos/defaults.sh" ;;
     *)
       die "Unknown phase: ${phase}"
       ;;
@@ -62,7 +60,7 @@ if [[ -n "$only" ]]; then
   exit 0
 fi
 
-for phase in prereqs brew custom stow macos; do
+for phase in prereqs brew custom stow; do
   log "Phase: ${phase}"
   run_phase "$phase"
 done

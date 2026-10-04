@@ -1,4 +1,4 @@
-.PHONY: bootstrap prereqs brew custom stow unstow macos capture-vm capture-metal compare-metal
+.PHONY: bootstrap prereqs brew custom stow unstow
 
 bootstrap:
 	./bootstrap.sh
@@ -17,15 +17,3 @@ stow:
 
 unstow:
 	./install/stow.sh --delete
-
-macos:
-	./bootstrap.sh --only macos
-
-capture-vm:
-	./macos/capture.sh vm
-
-capture-metal:
-	./macos/capture.sh metal
-
-compare-metal:
-	./macos/compare.sh vm metal

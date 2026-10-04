@@ -16,7 +16,8 @@ keep this folder as app scripts only.
 | --- | --- |
 | `brew-weekly-upgrade.sh` | LaunchAgent Sundays 22:00: brew upgrade, `mas upgrade`, `softwareupdate --download` (no OS auto-install) |
 | `iina-defaults.sh` | System default media → IINA (`utiluti`; short UTI list to limit Allow popups) |
-| `yazi-launcher.sh` | `/Applications/Yazi.app` (Ghostty + yazi in `$HOME`, no `-e` confirm) |
+| `sketchybar-borders.sh` | Build SbarLua; `brew services start` sketchybar + borders |
+| `yazi-launcher.sh` | `/Applications/Yazi.app` (Ghostty + yazi in `$HOME`; quit → shell stays in last folder) |
 | `assets/yazi-logo.png` | Official [Yazi logo](https://github.com/sxyazi/yazi/blob/main/assets/logo.png) → app icon |
 
 Job source lives in `install/launchd/`; the custom installer copies it to

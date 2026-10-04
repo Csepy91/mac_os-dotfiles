@@ -72,8 +72,10 @@ install_icon() {
 install_icon
 
 # Bytes typed into a normal Ghostty shell (no `-e` → no "Allow Execute?" dialog).
-# Trailing newline submits the line; `; exit` closes the window when yazi quits.
-printf '%s "%s"; exit\n' "${yazi_bin}" "${HOME}" >"${STARTUP_TXT}"
+# Trailing newline submits the line. On quit, cd into Yazi's last folder, clear
+# the typed startup line, and keep the shell open (same idea as `y` in functions.zsh).
+printf 'tmp="$(mktemp -t yazi-cwd.XXXXXX)"; %s "%s" --cwd-file="$tmp"; cwd="$(cat -- "$tmp")"; rm -f -- "$tmp"; [ -n "$cwd" ] && [ -d "$cwd" ] && cd -- "$cwd"; clear\n' \
+  "${yazi_bin}" "${HOME}" >"${STARTUP_TXT}"
 
 cat >"${BIN}" <<EOF
 #!/bin/bash
@@ -87,7 +89,6 @@ fi
 # Ghostty cannot disable -e confirmations (security). Use input=path: instead.
 exec open -na Ghostty.app --args \\
   --working-directory="\${home}" \\
-  --quit-after-last-window-closed=true \\
   --input=path:\${startup}
 EOF
 chmod 755 "${BIN}"
@@ -111,9 +112,9 @@ cat >"${PLIST}" <<EOF
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleVersion</key>
-  <string>3</string>
+  <string>4</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.2</string>
+  <string>1.3</string>
   <key>LSMinimumSystemVersion</key>
   <string>13.0</string>
   <key>NSHighResolutionCapable</key>
@@ -127,4 +128,4 @@ EOF
 # Nudge Dock/Spotlight to pick up the new icon
 killall Finder Dock 2>/dev/null || true
 
-log "Yazi.app ready at ${APP_ROOT} (official logo icon; starts in \$HOME)"
+log "Yazi.app ready at ${APP_ROOT} (starts in \$HOME; quit keeps Ghostty in last folder)"

@@ -1,11 +1,9 @@
 # macOS dotfiles
 
 Idempotent bootstrap for a fresh Mac: Homebrew apps, optional custom
-installers, GNU Stow of dotfiles, then macOS defaults (harvested later).
+installers, and GNU Stow of dotfiles.
 
-This UTM VM is the authoring machine. When the setup feels right, clone the
-same repo onto a **clean VM** and run `./bootstrap.sh`. After that replay is
-boring, reinstall bare metal and run the same script.
+Clone this repo and run `./bootstrap.sh`. The same script is the reinstall path.
 
 ## Bootstrap
 
@@ -23,9 +21,8 @@ Or: `make bootstrap`.
 | --- | --- |
 | `prereqs` | Xcode CLT, Homebrew, `stow`, `mas` |
 | `brew` | `brew bundle` against `Brewfile` |
-| `custom` | `install/custom/*.sh` (Yazi.app, IINA defaults, weekly brew LaunchAgent, …) |
+| `custom` | `install/custom/*.sh` (Yazi.app, IINA defaults, SketchyBar/borders, weekly brew LaunchAgent, …) |
 | `stow` | Link `stow/*` into `$HOME` |
-| `macos` | `macos/defaults.sh` (no-op until harvest) |
 
 ```sh
 ./bootstrap.sh --only brew
@@ -41,36 +38,52 @@ stowed at `~/.config/ghostty/config.ghostty` (Catppuccin Frappe, glass opacity).
 Karabiner complex modifications can get a `stow/karabiner` package later.
 OmniWM: grant Accessibility + Input Monitoring; keep “Displays have separate
 Spaces” on; do not run another tiling WM alongside it. Enable IPC in
-`~/.config/omniwm/settings.toml` (`ipcEnabled = true`) for OmniCast.
+`~/.config/omniwm/settings.toml` (`ipcEnabled = true`) for OmniCast and SketchyBar.
 Raycast is the app launcher; install [OmniCast](https://www.raycast.com/imprisonedmind/omni-cast)
 from the Raycast Store (not brew) and leave Raycast’s own Window Management off.
 CLI: Homebrew `zsh`, `git`, `gh`, `uv`, `ncdu`, `btop`, plus Yazi and its
 preview/search dependencies (`ffmpeg`, `sevenzip`, `jq`, `poppler`, `fd`,
 `ripgrep`, `fzf`, `zoxide`, `resvg`, `imagemagick`, JetBrains Mono Nerd Font,
-Symbols Nerd Font).
+Symbols Nerd Font). Desktop bar: `sketchybar` + `borders` (FelixKratz tap) with
+Catppuccin Frappe configs under `stow/sketchybar` and `stow/borders`.
 
 If Cursor (or another cask) is already installed, Homebrew leaves it alone.
+
+## SketchyBar + JankyBorders
+
+After brew + custom + stow (if brew refuses the FelixKratz tap:
+`brew trust felixkratz/formulae`, then rerun brew):
+
+1. Grant **Accessibility** to SketchyBar and borders (Privacy & Security).
+2. Hide the native menu bar: **System Settings → Control Center →
+   Automatically hide and show the menu bar → Always**
+   (or: `defaults write -g AppleMenuBarVisibleInFullscreen -bool false` and
+   `defaults write -g _HIHideMenuBar -bool true`; may need logout).
+3. In OmniWM settings (not stowed yet):
+   - `ipcEnabled = true`
+   - disable built-in `[borders]` and `[workspaceBar]` (external tools own those)
+   - `[gaps.outer] top ≈ 38` so windows clear the bar
+4. Reload if needed: `sketchybar --reload` and `brew services restart borders`.
+
+Custom phase builds [SbarLua](https://github.com/FelixKratz/SbarLua) once and starts
+`brew services` for sketchybar + borders.
 
 ## Layout
 
 - `Brewfile` — formulae, casks, `mas` App Store IDs
 - `install/custom/` — one script per non-brew app (`yazi-launcher.sh` → `/Applications/Yazi.app`)
 - `stow/` — packages that mirror `$HOME` (e.g. `stow/zsh/.zshrc` → `~/.zshrc`)
-- `macos/` — defaults capture/compare; see `macos/CAPTURE.md` before wiping bare metal
 
-## macOS settings baseline
+## Inspiration
 
-This VM is almost stock (Liquid Glass was tweaked). Capture a baseline, commit
-`macos/snapshots/vm/`, then on bare metal capture and diff — cherry-pick only
-what you want into `macos/harvested.flags` later:
+Patterns for OmniWM + SketchyBar + JankyBorders (revisit later; we use Catppuccin
+Frappe, not their Teto theme):
 
-```sh
-make capture-vm                 # on this UTM VM
-# … later on bare metal …
-make capture-metal
-make compare-metal
-```
+- [iluvgirlswithglasses/dots-macos](https://github.com/iluvgirlswithglasses/dots-macos)
+- SketchyBar submodule: [iluvgirlswithglasses/sketchybar](https://github.com/iluvgirlswithglasses/sketchybar)
 
+Useful ideas there: Lua bar layout, `omniwmctl` workspace watcher, `bordersrc`,
+outer top gap, and turning off OmniWM’s built-in workspace bar/borders.
 
 ## Git identity
 

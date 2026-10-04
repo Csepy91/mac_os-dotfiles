@@ -17,6 +17,7 @@ cask "transmission"
 - Prefer Homebrew over `install/custom/`. Custom scripts are only for apps with no formula/cask/mas.
 - `eza` replaces deprecated `exa` (removed from Homebrew). Zsh aliases map `ls`/`ll`/`la`/`lt` → eza.
 - `omniwm` is the tiling WM (Apple Silicon / macOS 26+). Conflicts with yabai/AeroSpace/Amethyst — do not add those alongside it.
+- Desktop stack companions: `tap "FelixKratz/formulae"` plus `sketchybar`, `borders`, and `lua`. SbarLua is built by `install/custom/sketchybar-borders.sh` (not brew). Configs are stowed under `stow/sketchybar` and `stow/borders` (Catppuccin Frappe).
 - `raycast` is the launcher. OmniCast is a Raycast Store extension (not brew); pair it with OmniWM and disable Raycast Window Management.
 - Cursor stays as `cask "cursor"` so a clean VM gets it; Homebrew is idempotent if already installed.
 - Yazi extras stay with Yazi (`ffmpeg`, `sevenzip`, `jq`, `poppler`, `fd`, `ripgrep`, `fzf`, `zoxide`, `resvg`, `imagemagick`, `font-symbols-only-nerd-font`). Do not drop them when editing Yazi.
